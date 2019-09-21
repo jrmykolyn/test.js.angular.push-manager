@@ -18,7 +18,18 @@ if ('navigator' in window && 'serviceWorker' in window.navigator) {
   // reference.
   window.navigator.serviceWorker.register('/assets/service-worker.js')
     .then((serviceWorker) => {
-      // TODO: Request permission for push notiifactions.
+
+      // Request push notification permission, passing in the public VAPID key.
+      serviceWorker.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: "BM0iVtYTuEGGCzJTufYOGcBrV101gIRuRzt5Q7Y1VsX47C3n-shwhz1CU6UfwH2Ij_QqAArjJhkNm0-onTUAh7o",
+      }).then((subscription) => {
+        // TODO: Display subscription data.
+      })
+      .catch((err) => {
+        console.error('__ WHOOPS, FAILED TO RETRIEVE SUBSCRIPTION DATA');
+        console.error(err);
+      });
     })
     .catch((err) => {
       console.error('__ WHOOPS, SOMETHING WENT WRONG!');
