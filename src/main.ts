@@ -24,7 +24,10 @@ if ('navigator' in window && 'serviceWorker' in window.navigator) {
         userVisibleOnly: true,
         applicationServerKey: "BM0iVtYTuEGGCzJTufYOGcBrV101gIRuRzt5Q7Y1VsX47C3n-shwhz1CU6UfwH2Ij_QqAArjJhkNm0-onTUAh7o",
       }).then((subscription) => {
-        // TODO: Display subscription data.
+        const target = document.querySelector('pre');
+        if (target) {
+          target.innerHTML = JSON.stringify(subscription, null, 2);
+        }
       })
       .catch((err) => {
         console.error('__ WHOOPS, FAILED TO RETRIEVE SUBSCRIPTION DATA');
