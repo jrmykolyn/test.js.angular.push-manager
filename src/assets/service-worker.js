@@ -1,4 +1,9 @@
 self.addEventListener('push', (event) => {
   console.log('__ RECEIVED PUSH EVENT');
-  console.log(event);
+  if (event.data) {
+    const data = event.data.json();
+    this.registration.showNotification(
+      (data.title || 'Default Title')
+    );
+  }
 });
