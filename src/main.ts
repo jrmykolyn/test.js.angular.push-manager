@@ -40,6 +40,16 @@ if ('navigator' in window && 'serviceWorker' in window.navigator) {
         };
         if (target) {
           target.innerHTML = JSON.stringify(data, null, 2);
+          window.fetch('http://localhost:4600/subscriptions', {
+            method: 'POST',
+            body: JSON.stringify(data),
+          })
+            .then((response) => {
+              console.log(response);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         }
       })
       .catch((err) => {
