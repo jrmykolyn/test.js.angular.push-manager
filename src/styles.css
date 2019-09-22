@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #fafafa;
+  font-size: 1.6rem;
+  font-family: Helvetica;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 3rem;
+}
+
+main {
+  width: 90%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+pre {
+  color: #efefef;
+  background: #222;
+  padding: 2rem;
+  text-overflow: auto;
+  overflow-x: scroll;
+}
