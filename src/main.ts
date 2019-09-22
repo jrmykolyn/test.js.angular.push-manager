@@ -32,7 +32,7 @@ if ('navigator' in window && 'serviceWorker' in window.navigator) {
       }).then((subscription) => {
 
         // Bundle the subscription data and a computed ID that corresponds to
-        // the user's defive into a new object; add data to DOM.
+        // the user's device into a new object; add data to DOM.
         const target = document.querySelector('pre');
         const data = {
           id: getId(),
