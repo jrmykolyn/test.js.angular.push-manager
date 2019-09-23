@@ -40,7 +40,7 @@ if ('navigator' in window && 'serviceWorker' in window.navigator) {
     .then((serviceWorker) => {
       return serviceWorker.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: "BM0iVtYTuEGGCzJTufYOGcBrV101gIRuRzt5Q7Y1VsX47C3n-shwhz1CU6UfwH2Ij_QqAArjJhkNm0-onTUAh7o",
+        applicationServerKey: window['__APPLICATION_SERVER_KEY__'],
       });
     })
     // 4.
