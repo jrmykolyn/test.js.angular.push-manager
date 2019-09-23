@@ -20,6 +20,19 @@ const getId = () => {
 // Ensure that service workers are supported in the current browser.
 if ('navigator' in window && 'serviceWorker' in window.navigator) {
 
+  window.fetch('http://localhost:4600/keys')
+    .then((response) => {
+      return response.json();
+    })
+    .then((keys) => {
+      const [{ publicKey }] = keys;
+      window['__APPLICATION_SERVER_KEY__'] = publicKey;
+    })
+    .catch((err) => {
+      console.error('Whoops, something went wrong!');
+      console.error(err);
+    });
+
   // Register the application service worker, exposing the service worker
   // reference.
   window.navigator.serviceWorker.register('/assets/service-worker.js')
